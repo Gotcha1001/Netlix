@@ -1,4 +1,5 @@
 "use client";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { GlobalContextProvider } from "@/context/globalContext";
 import { ProfileContextProvider } from "@/context/profileContext";
 
@@ -9,7 +10,9 @@ interface Props {
 function ContextProvider({ children }: Props) {
   return (
     <GlobalContextProvider>
-      <ProfileContextProvider>{children}</ProfileContextProvider>
+      <ProfileContextProvider>
+        <TooltipProvider>{children}</TooltipProvider>
+      </ProfileContextProvider>
     </GlobalContextProvider>
   );
 }

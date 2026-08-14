@@ -3,7 +3,7 @@ import React from "react";
 
 interface Props {
   rating?: string;
-  size?: "sm" | "md";
+  size?: "xs" | "sm" | "md";
 }
 
 function MaturityBadge({ rating, size }: Props) {
@@ -12,7 +12,11 @@ function MaturityBadge({ rating, size }: Props) {
     : ALL_AUDIENCES_CONFIG;
 
   const sizeClass =
-    size === "sm" ? "w-8 h-8 text-xs" : "w-8 h-8 md:w-11 md:h-11 text-base";
+    size === "xs"
+      ? "w-6 h-6 text-xs"
+      : size === "sm"
+        ? "w-8 h-8 text-xs"
+        : "w-8 h-8 md:w-11 md:h-11 text-base";
 
   return (
     <span

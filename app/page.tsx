@@ -1,9 +1,11 @@
 "use client";
 import Header from "@/components/Header";
 import MaturityBadge from "@/components/movie/MaturityBadge";
+import MoviesRow from "@/components/movie/MoviesRow";
 import { useGlobalContext } from "@/context/globalContext";
 import useFetchFeaturedMovies from "@/hooks/movie/useFetchFeaturedMovies";
 import useFetchMovies from "@/hooks/movie/useFetchMovies";
+import useFetchTrendingMovies from "@/hooks/movie/useFetchTrendingMovies";
 import { InfoIcon, PlayIcon, VolumeFullIcon, VolumeOffIcon } from "@/lib/icons";
 
 import Image from "next/image";
@@ -20,12 +22,15 @@ export default function Home() {
   const { data: allMovies = [], isLoading: allMoviesLoading } =
     useFetchMovies();
   // const { data: myListMovies = [] } = useFetchMyListMovies();
-  // const { data: trendingMovies = [], isLoading: trendingLoading } =
-  //   useFetchTrendingMovies();
+
+  const { data: trendingMovies = [], isLoading: trendingLoading } =
+    useFetchTrendingMovies();
 
   const [isMuted, setIsMuted] = useState(true);
 
   const featured = featuredMovies?.[0];
+
+  const dummyData = Array(10).fill(featured || null);
 
   return (
     <div className="">
@@ -83,6 +88,17 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
+      <div
+        className="-mt-26 md:-mt-32 overflow-x-clip pt-8 px-4 md:px-14 relative z-20 flex flex-col gap-10"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent, var(--color-brand-background) 10rem)",
+        }}
+      >
+        <MoviesRow title="Trending Now" movies={trendingMovies} />
+        <MoviesRow title="New on Netflix" movies={trendingMovies} />
+        <MoviesRow title="My List" movies={trendingMovies} />
       </div>
     </div>
   );

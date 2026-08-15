@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import ContextProvider from "@/providers/ContextProvider";
 import ModalProvider from "@/providers/ModalProvider";
 import QueryProvider from "@/providers/QueryProvider";
+import Footer from "@/components/Footer";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -39,6 +40,7 @@ export default function RootLayout({
           <QueryProvider>
             <ModalProvider>
               <main>{children}</main>
+              <Footer />
             </ModalProvider>
           </QueryProvider>
         </body>

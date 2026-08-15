@@ -180,10 +180,8 @@ function CarouselPrevious({
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
   return (
-    <Button
+    <button
       data-slot="carousel-previous"
-      variant={variant}
-      size={size}
       className={cn(
         "absolute touch-manipulation rounded-full",
         orientation === "horizontal"
@@ -195,9 +193,9 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeftIcon />
+      <ChevronLeftIcon size={50} />
       <span className="sr-only">Previous slide</span>
-    </Button>
+    </button>
   );
 }
 
@@ -210,10 +208,8 @@ function CarouselNext({
   const { orientation, scrollNext, canScrollNext } = useCarousel();
 
   return (
-    <Button
+    <button
       data-slot="carousel-next"
-      variant={variant}
-      size={size}
       className={cn(
         "absolute touch-manipulation rounded-full",
         orientation === "horizontal"
@@ -225,9 +221,9 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRightIcon />
+      <ChevronRightIcon size={50} />
       <span className="sr-only">Next slide</span>
-    </Button>
+    </button>
   );
 }
 

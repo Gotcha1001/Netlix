@@ -14,6 +14,20 @@ interface Props {
   movies: Movie[];
 }
 
+function CarouselPreviewConditional() {
+  const { canScrollPrev } = useCarousel();
+  if (!canScrollPrev) return null;
+  return (
+    <CarouselPrevious className="hover:scale-150 duration-200 opacity-90" />
+  );
+}
+
+function CarouselNextConditional() {
+  const { canScrollNext } = useCarousel();
+  if (!canScrollNext) return null;
+  return <CarouselNext className="hover:scale-150 duration-200 opacity-90" />;
+}
+
 function MoviesRow({ title, movies }: Props) {
   return (
     <section className="relative z-0 has-data-elevated:z-10 flex flex-col gap-2 md:gap-4">
@@ -29,6 +43,8 @@ function MoviesRow({ title, movies }: Props) {
             </CarouselItem>
           ))}
         </CarouselContent>
+        <CarouselPreviewConditional />
+        <CarouselNextConditional />
       </Carousel>
     </section>
   );

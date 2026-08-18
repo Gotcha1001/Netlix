@@ -31,7 +31,10 @@ function CarouselNextConditional() {
 function MoviesRow({ title, movies }: Props) {
   return (
     <section className="relative z-0 has-data-elevated:z-10 flex flex-col gap-2 md:gap-4">
-      <h2 className="font-semibold text-lg md:text-2xl">{title}</h2>
+      {movies.length > 0 && (
+        <h2 className="font-semibold text-lg md:text-2xl">{title}</h2>
+      )}
+
       <Carousel opts={{ align: "start" }} className="ml-4">
         <CarouselContent className="gap-2">
           {movies.map((movie) => (

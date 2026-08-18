@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const fetchMovie = async (id: string): Promise<Movie> => {
-  const { data } = await axios.get(`/api/movies/${id}`);
+  const { data } = await axios.get(`/api/movies/id/${id}`);
   return data;
 };
 

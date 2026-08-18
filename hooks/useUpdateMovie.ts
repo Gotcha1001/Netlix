@@ -10,7 +10,7 @@ const updateMovie = async ({
   id,
   ...data
 }: UpdateMovieData): Promise<Movie> => {
-  const response = await axios.patch(`/api/movies/${id}`, data);
+  const response = await axios.patch(`/api/movies/id/${id}`, data);
   return response.data;
 };
 

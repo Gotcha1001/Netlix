@@ -6,7 +6,7 @@ const useDeleteMovie = () => {
 
   return useMutation({
     mutationFn: async (movidId: string) => {
-      await axios.delete(`/api/movies/${movidId}`);
+      await axios.delete(`/api/movies/id/${movidId}`);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["movies"] });
